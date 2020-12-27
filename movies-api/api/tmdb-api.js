@@ -23,7 +23,7 @@ export const getMovies = () => {
 
   export const getMovieReviews = id => {
     return fetch(
-      `https://api.themovied.org/3/movie/${id}/reviews?api_key=${process.env.TMDB_KEY}`
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.TMDB_KEY}`
     )
       .then(res => res.json())
       .then(json => json.results);
