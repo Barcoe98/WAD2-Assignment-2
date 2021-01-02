@@ -10,6 +10,14 @@ const UserSchema = new Schema({
  
 });
 
+//password contain 5 characters at least 1 number and 1 letter
+const pwordValidator = (password) => {
+  let pwordRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+  return pwordRegEx.test(password);
+};
+
+UserSchema.path('password').validate(pwordValidator);
+
 UserSchema.statics.findByUserName = function (username) {
   return this.findOne({ username: username });
 };
@@ -43,5 +51,7 @@ UserSchema.pre('save', function(next) {
       return next();
   }
 });
+
+
 
 export default mongoose.model('User', UserSchema);

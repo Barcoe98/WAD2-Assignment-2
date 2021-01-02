@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import movieModel from '../../seedData/movies'
 
 const router = express.Router(); // eslint-disable-line
+const passwordTest = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$"
 
 // Get all users
 router.get('/', (req, res, next) => {
