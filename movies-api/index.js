@@ -9,7 +9,6 @@ import passport from './authenticate';
 import {loadUsers, loadMovies} from './seedData';
 import './db';
 
-
 dotenv.config();
 
 const errHandler = (err, req, res, next) => {
@@ -29,7 +28,6 @@ if (process.env.SEED_DB) {
 const app = express();
 const port = process.env.PORT;
 
-
 app.use(session({
   secret: 'ilikecake',
   resave: true,
@@ -44,13 +42,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 app.use(express.static('public'));
+
+// Add passport.authenticate(..)  to middleware stack for protected routes​
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
+
 app.use('/api/users', usersRouter);
 app.use('/api/genres', genresRouter);
 app.use(errHandler);
-
-// Add passport.authenticate(..)  to middleware stack for protected routes​
-//app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);

@@ -1,6 +1,7 @@
 import express from 'express';
 import User from './userModel';
 import jwt from 'jsonwebtoken';
+import movieModel from '../../seedData/movies'
 
 const router = express.Router(); // eslint-disable-line
 
@@ -8,7 +9,6 @@ const router = express.Router(); // eslint-disable-line
 router.get('/', (req, res, next) => {
     User.find().then(users =>  res.status(200).json(users)).catch(next);;
 });
-
 
 //The below function checks for both username and password in the request. 
 //If the action parameter's value is "register", it attempts to create a new user in the database. 
@@ -61,29 +61,23 @@ router.put('/:id',  (req, res, next) => {
     .then(user => res.json(200, user)).catch(next);;
 });
 
-router.post('/:userName/favourites', (req, res, next) => {
-    const newFavourite = req.body;
-    const query = {username: req.params.userName};
-    if (newFavourite && newFavourite.id) {
-      User.find(query).then(
-        user => {
-          (user.favourites)?user.favourites.push(newFavourite):user.favourites =[newFavourite];
-          User.findOneAndUpdate(query, {favourites:user.favourites}, {
-            new: true
-          }).then(user => res.status(201).send(user));
-        }
-      ).catch(next);
-    } else {
-        res.status(401).send("Unable to find user")
-    }
-  });
+//Add a favourite. No Error Handling Yet. Can add duplicates too!
+router.post('/:userName/favourites', async (req, res, next) => {
+  const newFavourite = req.body.id;
+  const userName = req.params.userName;
+  const movie = await movieModel.findByMovieDBId(newFavourite).catch(next);
+  const user = await User.findByUserName(userName).catch(next);
+  await user.favourites.push(movie._id);
+  await user.save(); 
+  res.status(201).json(user); 
+});
 
-  router.get('/:userName/favourites', (req, res, next) => {
-    const user = req.params.userName;
-    User.find( {username: user}).then(
-        user => res.status(201).send(user.favourites)
-    ).catch(next);
-  });
+router.get('/:userName/favourites', (req, res, next) => {
+  const userName = req.params.userName;
+  User.findByUserName(userName).populate('favourites').then(
+    user => res.status(201).json(user.favourites)
+  ).catch(next);
+});
 
-  
+
 export default router;
