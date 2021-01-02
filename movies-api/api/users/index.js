@@ -8,9 +8,24 @@ router.get('/', (req, res, next) => {
     User.find().then(users =>  res.status(200).json(users)).catch(next);;
 });
 
-// register
-router.post('/', (req, res ,next) => {
-    User.create(req.body).then(user => res.status(200).json({success:true,token:"FakeTokenForNow"})).catch(next);
+// authenticate a user
+router.post('/', (req, res, next) => {
+  if (!req.body.username || !req.body.password) {
+      res.status(401).send('authentication failed');
+  } else {
+      User.findByUserName(req.body.username).then(user => {
+          if (user.comparePassword(req.body.password)) {
+              req.session.user = req.body.username;
+              req.session.authenticated = true;
+              res.status(200).json({
+                  success: true,
+                  token: "temporary-token"
+                });
+          } else {
+              res.status(401).json('authentication failed');
+          }
+      }).catch(next);
+  }
 });
 
 // Update a user
