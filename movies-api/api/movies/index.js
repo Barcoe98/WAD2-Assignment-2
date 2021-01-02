@@ -3,9 +3,15 @@ import movieModel from '../../seedData/movies'
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
+router.get('/', ( res, next) => {
   movieModel.find().then(movies => res.status(200).send(movies)).catch(next);
 });
+
+
+// router.get('/', (req, res,next) => {
+//   getMovies().then(movies => res.status(200).send(movies))
+//   .catch((error) => next(error));;
+// });
 
 router.get('/:id', (req, res, next) => {
   const id = parseInt(req.params.id);
@@ -20,3 +26,5 @@ router.get('/:id', (req, res, next) => {
 // });
 
 export default router;
+
+

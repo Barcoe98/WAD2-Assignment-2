@@ -6,12 +6,15 @@ import LoginPage from "./loginPage";
 import SignUpPage from "./signUpPage";
 import PrivateRoute from "./privateRoute";
 import AuthHeader from "./authHeader";
-import AuthProvider from "./authContext";
+import MovieProvider from '../sample/movieContext';
+
+import AuthProvider from "../sample/authContext";
 
 const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
+      <MovieProvider>
         <AuthHeader />
         <ul>
           <li>
@@ -27,6 +30,7 @@ const App = () => {
             <Link to="/profile">Profile</Link>
           </li>
         </ul>
+       
         <Switch>
           <Route path="/public" component={PublicPage} />
           <Route path="/login" component={LoginPage} />
@@ -36,6 +40,7 @@ const App = () => {
           <PrivateRoute path="/profile" component={Profile} />
           <Redirect from="*" to="/" />
         </Switch>
+        </MovieProvider>
       </AuthProvider>
     </BrowserRouter>
   );
