@@ -1,5 +1,6 @@
 import express from 'express';
 import User from './userModel';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router(); // eslint-disable-line
 
@@ -8,24 +9,45 @@ router.get('/', (req, res, next) => {
     User.find().then(users =>  res.status(200).json(users)).catch(next);;
 });
 
-// authenticate a user
-router.post('/', (req, res, next) => {
+
+//The below function checks for both username and password in the request. 
+//If the action parameter's value is "register", it attempts to create a new user in the database. 
+//Otherwise, it authenticates the user, creates the JWT token using the SECRET and signed with the users username. 
+//The token is then returned to the client for use in future requests.
+// Register OR authenticate a user
+router.post('/', async (req, res, next) => {
   if (!req.body.username || !req.body.password) {
-      res.status(401).send('authentication failed');
-  } else {
-      User.findByUserName(req.body.username).then(user => {
-          if (user.comparePassword(req.body.password)) {
-              req.session.user = req.body.username;
-              req.session.authenticated = true;
-              res.status(200).json({
-                  success: true,
-                  token: "temporary-token"
-                });
-          } else {
-              res.status(401).json('authentication failed');
-          }
-      }).catch(next);
+    res.status(401).json({
+      success: false,
+      msg: 'Please pass username and password.',
+    });
   }
+  if (req.query.action === 'register') {
+    await User.create(req.body).catch(next);
+    res.status(201).json({
+      code: 201,
+      msg: 'Successful created new user.',
+    });
+  } else {
+    const user = await User.findByUserName(req.body.username).catch(next);
+      if (!user) return res.status(401).json({ code: 401, msg: 'Authentication failed. User not found.' });
+      user.comparePassword(req.body.password, (err, isMatch) => {
+        if (isMatch && !err) {
+          // if user is found and password is right create a token
+          const token = jwt.sign(user.username, process.env.SECRET);
+          // return the information including token as JSON
+          res.status(200).json({
+            success: true,
+            token: 'BEARER ' + token,
+          });
+        } else {
+          res.status(401).json({
+            code: 401,
+            msg: 'Authentication failed. Wrong password.'
+          });
+        }
+      });
+    }
 });
 
 // Update a user
