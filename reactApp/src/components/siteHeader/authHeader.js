@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
-import { AuthContext } from "./authContext";
+import { AuthContext } from "../../contexts/authContext";
 
 const BaseAuthHeader = (props) => {
   const context = useContext(AuthContext);

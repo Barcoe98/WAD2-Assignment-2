@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext} from 'react';
-import { MoviesContext } from '../sample/movieContext';
+import { MoviesContext } from '../contexts/movieContext';
 
 
 export const PublicPage = () => {
