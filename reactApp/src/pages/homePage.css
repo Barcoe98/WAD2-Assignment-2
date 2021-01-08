@@ -1,0 +1,19 @@
+.pageBanner{
+    background-color: #000;
+    text-align: center;
+    padding: 10px;
+    color: aliceblue;
+    border-radius: 50px;
+    margin: 4px;
+    margin-top: 50px;
+}
+
+.pageLogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    border-radius: 40px;
+}

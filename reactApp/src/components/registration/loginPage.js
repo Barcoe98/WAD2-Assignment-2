@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from '../../contexts/authContext';
 import{ Form, Button, Card, Alert } from 'react-bootstrap'
+import "./auth.css";
 
 
 const LoginPage = props => {
@@ -23,8 +24,7 @@ const LoginPage = props => {
   }
   return (
     <>
-     <Card className = "mt-5 card">
-        <Card.Body>
+        <Card.Body  className = "text-center mt-5 bgColor">
           <h1 className="text-center mb-4"> Login</h1>
           <h4 className ="text-center" >Log In to View Full Website</h4>
 
@@ -45,8 +45,7 @@ const LoginPage = props => {
           </div>
           
         </Card.Body>
-      </Card>
-      </>
+          </>
   );
 };
 

@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from '../../contexts/authContext';
 import{ Form, Button, Card, Alert } from 'react-bootstrap'
+import "./auth.css";
+
 
 const SignUpPage = props => {
   const context = useContext(AuthContext)
@@ -25,8 +27,8 @@ const SignUpPage = props => {
 
   return (
     <>
-      <Card className = "mt-5 card">
-        <Card.Body>
+      
+        <Card.Body className = " text-center mt-5 bgColor">
           <h1 className="text-center mb-4"> Sign Up</h1>
           <h4 className="text-center">You must register a username and password to log in </h4>
 
@@ -52,7 +54,6 @@ const SignUpPage = props => {
           </div>
           
         </Card.Body>
-      </Card>
     </>
   );
 };

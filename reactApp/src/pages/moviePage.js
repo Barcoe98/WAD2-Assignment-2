@@ -9,7 +9,7 @@ const MovieListPage = () => {
 
   return (
     <PageTemplate 
-      title='Movies'
+      title='Discover Movies'
       movies={movies}
       />
 );

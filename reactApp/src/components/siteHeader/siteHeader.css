@@ -2,9 +2,14 @@
 /* top - right - bottom - left */
 .fixed-top {
     /*padding: 10px 5px 10px 40px ;*/
-    background-color:#009DFF;
-    font-size: large;
+    background-color:#000;
+    font-size: x-large;
+    color: aliceblue;
+    height: 10%;
 }
 .brand {
     font-size: xx-large;
+    color: aliceblue;
 }
+
+/* #009DFF; */

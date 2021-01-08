@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../app.css"
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
-import { PublicPage, Movies, Profile, HomePage } from "../pages/pages";
+import { PublicPage, Profile } from "../pages/pages";
 import LoginPage from "./registration/loginPage";
 import MoviesPage from "../pages/moviePage";
+import HomePage from "../pages/homePage";
+
 import SignUpPage from "./registration/signUpPage";
 import PrivateRoute from "./registration/privateRoute";
 import SiteHeader from "./siteHeader/index";

@@ -5,10 +5,10 @@ const Header = ({ title, numMovies }) => {
   return (
     <div className="row">
       <div>
-        <h2 className="pgTitle">
+        <h1 className="pgTitle">
           {`${title } `}
           <span className="badge badge-pill">{numMovies}</span>
-        </h2>
+        </h1>
       </div>
     </div>
   );
