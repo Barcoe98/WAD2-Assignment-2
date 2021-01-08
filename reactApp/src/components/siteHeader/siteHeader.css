@@ -7,8 +7,8 @@
     color: aliceblue;
     height: 10%;
 }
-.brand {
-    font-size: xx-large;
+.brandSize {
+    font-size: 40px !important;
     color: aliceblue;
 }
 

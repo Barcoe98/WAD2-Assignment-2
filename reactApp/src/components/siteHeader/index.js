@@ -6,18 +6,16 @@ import "./siteHeader.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-const SiteHeader = (props) => {
+const SiteHeader = () => {
   const context = useContext(AuthContext);
 
   return context.isAuthenticated ? (
   
-  <Navbar collapseOnSelect variant="dark"expand="lg" fixed="top">
-    <Navbar.Brand className="text-light brand" href="/">Movie Universe</Navbar.Brand>
+  <Navbar collapseOnSelect variant="dark"  expand="lg" fixed="top">
+    <Navbar.brand className="text-light brandSize" href="/">MOVIE Universe </Navbar.brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">
-      {/* <Nav.Item>Welcome {context.userName}!</Nav.Item> */}
       <Nav.Item><Link className="nav-link text-light" to="/"> HOME</Link></Nav.Item>
       <Nav.Item><Link className="nav-link text-light" to="/api/movies"> MOVIES</Link></Nav.Item>
       {/* <Nav.Item><Link className="nav-link text-dark" to="/users"> USERS</Link></Nav.Item> */}
@@ -29,7 +27,7 @@ const SiteHeader = (props) => {
   ) : (
   
   <Navbar collapseOnSelect variant="dark"expand="lg" fixed="top">
-    <Navbar.Brand className="text-light brand" href="/">Movie Universe</Navbar.Brand>
+    <Navbar.Brand className="text-light brandSize" href="/">Movie Universe</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">
