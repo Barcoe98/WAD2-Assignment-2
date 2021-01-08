@@ -1,0 +1,34 @@
+.card {
+    background-color: #009DFF;
+}
+
+
+.tt{
+    color: white;
+}
+
+.link {
+    color: gold;
+}
+
+.link:hover, .link2:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.link2 {
+    color: #333;
+}
+
+/*Hover CSS for buttons */
+.btnAuth:hover{
+    background-color: gold;
+}
+
+/*CSS for buttons */
+.btnAuth {
+    color: white;
+    background-color: #333;
+    text-decoration: none;
+    border: none;
+}
