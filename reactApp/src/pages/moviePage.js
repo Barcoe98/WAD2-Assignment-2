@@ -1,23 +1,18 @@
 import React, { useContext } from "react";
 import {MoviesContext} from '../contexts/movieContext'
+import PageTemplate from '../components/templateMovieListPage'
+
 
 const MovieListPage = () => {
   const context = useContext(MoviesContext);
+  const movies = context.movies
+
   return (
-    <>
-        <h1>Movies Data </h1>
-        <h1>Movies Data </h1>
-        <h1>Movies Data </h1>
-        <h1>Movies Data </h1>
-        <h1>Movies Data </h1>
-        <h1>Movies Data </h1>
-    
-        
-        <div>
-            {context.movies.map(movie => { return <>{movie.id},{movie.title}<br /></> })}
-        </div>
-    </>
-  );
+    <PageTemplate 
+      title='Movies'
+      movies={movies}
+      />
+);
 };
 
 export default MovieListPage;

@@ -1,0 +1,43 @@
+/*Image css */
+.center {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 4px;    
+    background-color: none;
+    text-align: center;
+  }
+
+.card {
+    border-color: #333;
+    background-color: #333;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+.card-title {
+  text-align: center;
+  color: #000000;
+  font-size: large;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: gold;
+  }
+
+.btn {
+    font-size: 0.8em;
+    background-color: #222;
+    color: gold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .container .btn:hover {
+    color: white;
+  }
+
+  img {
+    border-radius: 10px;
+  }

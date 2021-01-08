@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "../app.css"
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import { PublicPage, Movies, Profile, HomePage } from "../pages/pages";
 import LoginPage from "./registration/loginPage";
@@ -12,7 +13,10 @@ import AuthProvider from "../contexts/authContext";
 
 const App = () => {
   return (
+    <div className = "page-temp">
     <BrowserRouter>
+    <div className ="page-template">
+      <div className="container-fluid">
       <AuthProvider>
       <SiteHeader/>
       <MovieProvider>
@@ -27,7 +31,10 @@ const App = () => {
         </Switch>
         </MovieProvider>
       </AuthProvider>
+      </div>
+      </div>
     </BrowserRouter>
+    </div>
   );
 };
 
