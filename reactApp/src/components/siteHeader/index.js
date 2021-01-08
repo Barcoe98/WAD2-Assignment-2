@@ -20,9 +20,9 @@ const SiteHeader = (props) => {
     <Nav className="ml-auto">
     {/* <Nav.Item>Welcome {context.userName}!</Nav.Item> */}
     <Nav.Item><Link className="nav-link text-dark" to="/"> HOME</Link></Nav.Item>
-    <Nav.Item><Link className="nav-link text-dark" to="/Movies"> MOVIES</Link></Nav.Item>
+    <Nav.Item><Link className="nav-link text-dark" to="/api/movies"> MOVIES</Link></Nav.Item>
     {/* <Nav.Item><Link className="nav-link text-dark" to="/users"> USERS</Link></Nav.Item> */}
-    <Nav.Item><Link className="nav-link text-light" onClick={() => context.signout()}>SIGN OUT</Link></Nav.Item>
+    <Nav.Item><Link className="nav-link text-light" onClick={() => context.signout()} to="/">SIGN OUT</Link></Nav.Item>
   </Nav>
  </Navbar.Collapse>
 </Navbar>
