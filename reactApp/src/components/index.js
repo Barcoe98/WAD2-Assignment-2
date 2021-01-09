@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import { PublicPage, Profile } from "../pages/pages";
 import LoginPage from "./registration/loginPage";
 import MoviesPage from "../pages/moviePage";
+import PopularMoviesPage from "../pages/PopularMoviesPage";
 import HomePage from "../pages/homePage";
 
 import SignUpPage from "./registration/signUpPage";
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/signup" component={SignUpPage} />,
           <Route exact path="/" component={HomePage} />
           <PrivateRoute path="/api/movies" component={MoviesPage} />
+          <PrivateRoute path="/api/movies/popular" component={PopularMoviesPage} />
           <PrivateRoute path="/profile" component={Profile} />
           <Redirect from="*" to="/" />
         </Switch>

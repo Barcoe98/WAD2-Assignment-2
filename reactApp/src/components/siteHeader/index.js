@@ -12,12 +12,13 @@ const SiteHeader = () => {
   return context.isAuthenticated ? (
   
   <Navbar collapseOnSelect variant="dark"  expand="lg" fixed="top">
-    <Navbar.brand className="text-light brandSize" href="/">MOVIE Universe </Navbar.brand>
+    <Navbar.Brand className="text-light brandSize" href="/">MOVIE Universe </Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">
       <Nav.Item><Link className="nav-link text-light" to="/"> HOME</Link></Nav.Item>
       <Nav.Item><Link className="nav-link text-light" to="/api/movies"> MOVIES</Link></Nav.Item>
+      <Nav.Item><Link className="nav-link text-light" to="/api/movies/popular"> POPULAR</Link></Nav.Item>
       {/* <Nav.Item><Link className="nav-link text-dark" to="/users"> USERS</Link></Nav.Item> */}
       <Nav.Item><Link className="nav-link text-light" onClick={() => context.signout()} to="/">SIGN OUT</Link></Nav.Item>
     </Nav>
@@ -40,4 +41,4 @@ const SiteHeader = () => {
   );
 };
 
-export default withRouter(SiteHeader);
+export default SiteHeader;
