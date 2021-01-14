@@ -45,7 +45,7 @@ export async function loadMovies() {
 }
 
 // deletes all popular movie documents in collection and inserts test data
-export async function loadMovies() {
+export async function loadPopularMovies() {
   console.log('load seed data');
   console.log(popular.length);
   try {
