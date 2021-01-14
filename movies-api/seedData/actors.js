@@ -1432,5 +1432,4 @@ export const popularMovies = [
           "profile_path":"/z5BS5EeuhpM2KGFfUjOhVXtjmMy.jpg"
        }
     ],
-
 ];
