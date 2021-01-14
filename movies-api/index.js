@@ -45,6 +45,8 @@ app.use(express.static('public'));
 
 // Add passport.authenticate(..)  to middleware stack for protected routes​
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
+app.use('/api/movies/popular', passport.authenticate('jwt', {session: false}), moviesRouter);
+
 
 app.use('/api/users', usersRouter);
 app.use('/api/genres', genresRouter);

@@ -5,7 +5,7 @@ import PageTemplate from '../components/templateMovieListPage'
 
 const PopularMovieListPage = () => {
   const context = useContext(MoviesContext);
-  const popularMovies = context.movies
+  const popularMovies = context.popularMovies
 
   return (
     <PageTemplate 
