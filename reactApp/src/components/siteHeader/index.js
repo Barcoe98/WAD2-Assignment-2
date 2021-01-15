@@ -12,7 +12,7 @@ const SiteHeader = () => {
   return context.isAuthenticated ? (
   
   <Navbar collapseOnSelect variant="dark"  expand="lg" fixed="top">
-    <Navbar.Brand className="text-light brandSize" href="/">MOVIE Universe </Navbar.Brand>
+    <Navbar.Brand className="text-light brandSize" href="/">MOVIE UNIVERSE </Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">
@@ -30,7 +30,7 @@ const SiteHeader = () => {
   ) : (
   
   <Navbar collapseOnSelect variant="dark"expand="lg" fixed="top">
-    <Navbar.Brand className="text-light brandSize" href="/">Movie Universe</Navbar.Brand>
+    <Navbar.Brand className="text-light brandSize" href="/">MOVIE UNIVERSE</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">
