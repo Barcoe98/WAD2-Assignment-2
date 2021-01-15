@@ -1,5 +1,4 @@
-export const popularMovies = [
-    [
+export const actors = [
         {
           "adult":false,
           "gender":1,
@@ -1431,5 +1430,5 @@ export const popularMovies = [
           "popularity":21.323,
           "profile_path":"/z5BS5EeuhpM2KGFfUjOhVXtjmMy.jpg"
        }
-    ],
+
 ];

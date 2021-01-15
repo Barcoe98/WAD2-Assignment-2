@@ -1,5 +1,4 @@
 export const popularMovies = [
-    [
         {
           "adult": false,
           "backdrop_path": "/srYya1ZlI97Au4jUYAktDe3avyA.jpg",
@@ -397,5 +396,4 @@ export const popularMovies = [
           "vote_average": 5.6,
           "vote_count": 305
         }
-      ]
 ];
