@@ -1,0 +1,35 @@
+/*Image css */
+.center {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: none;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+.card-title {
+    text-align: center;
+    color: #333;
+    font-size: large;
+    background-color: gold;
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+  }
+
+  .text-block {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  img {
+    border-radius: 10px;
+  }
