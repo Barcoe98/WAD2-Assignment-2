@@ -19,6 +19,8 @@ const SiteHeader = () => {
       <Nav.Item><Link className="nav-link text-light" to="/"> HOME</Link></Nav.Item>
       <Nav.Item><Link className="nav-link text-light" to="/api/movies"> MOVIES</Link></Nav.Item>
       <Nav.Item><Link className="nav-link text-light" to="/api/movies/popular"> POPULAR</Link></Nav.Item>
+      <Nav.Item><Link className="nav-link text-light" to="/api/actors"> ACTORS</Link></Nav.Item>
+
       {/* <Nav.Item><Link className="nav-link text-dark" to="/users"> USERS</Link></Nav.Item> */}
       <Nav.Item><Link className="nav-link text-light" onClick={() => context.signout()} to="/">SIGN OUT</Link></Nav.Item>
     </Nav>
