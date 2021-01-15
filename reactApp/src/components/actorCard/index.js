@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./actorCard.css";
-import "../../globals/fontawesome";
 
-const ActorCard = ({actor, action}) => {
+const ActorCard = ({actor}) => {
 
   return (
     <div className="col-sm-2">
