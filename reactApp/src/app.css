@@ -1,10 +1,6 @@
  .page-template {
     margin:0% 6% 0% 6%;
     /*top - right - bottom - left*/
-    padding: 120px 20px 100px 20px;
+    padding: 50px 20px 100px 20px;
     font-family: 'Franklin Gothic Medium';
 }
-
-.page-temp {
-
-} 
