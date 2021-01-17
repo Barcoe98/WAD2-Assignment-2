@@ -1,0 +1,16 @@
+/* Page Title */
+.pgTitle{
+    font-weight: 520;
+    border-radius: 14px;
+    padding: 6px;
+    margin: 40px 10px 20px 10px;
+    color: #fff;
+    float: center;  
+    background-color: #000;}
+
+/* Movie number badge */
+.badge{
+    background-color: gold;
+    color: #000;
+}
+
