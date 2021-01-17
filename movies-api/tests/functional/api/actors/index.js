@@ -5,17 +5,17 @@ const expect = chai.expect;
 
 let api;
 
-const sampleMovie = {
+const sampleActor = {
   id: 337401,
-  title: "Mulan",
+  name: "Mulan",
 };
 
-describe("Movies endpoint", () => {
+describe("Actors endpoint", () => {
   beforeEach(async () => {
     try {
       api = require("../../../../index");
     } catch (err) {
-      console.error(`failed to Load user Data: ${err}`);
+      console.error(`failed to Load Data: ${err}`);
     }
   });
   afterEach(() => {
@@ -24,10 +24,10 @@ describe("Movies endpoint", () => {
   });
 
 
-  describe("GET /movies ", () => {
-    // it("should return 20 movies and a status 200", (done) => {
+  describe("GET /actors ", () => {
+    // it("should return 20 actors and a status 200", (done) => {
     //   request(api)
-    //     .get("/api/movies")
+    //     .get("/api/actors")
     //     .set("Accept", "application/json")
     //     .expect("Content-Type", /json/)
     //     .expect(200)
@@ -39,32 +39,32 @@ describe("Movies endpoint", () => {
     // });
   });
 
-   describe("GET /movies/:id", () => {
+   describe("GET /actors/:id", () => {
     describe("when the id is valid", () => {
-      // it("should return the matching movie", () => {
+      // it("should return the matching actors", () => {
       //    request(api)
-      //     .get(`/api/movies/${sampleMovie.id}`)
+      //     .get(`/api/actors/${sampleActor.id}`)
       //     .set("Accept", "application/json")
       //     .expect("Content-Type", /json/)
       //     .expect(200)
       //     .then((res) => {
-      //       expect(res.body).to.have.property("title", sampleMovie.title);
+      //       expect(res.body).to.have.property("name", sampleActor.name);
       //     });
-      });
+      // });
     });
     
     describe("when the id is invalid", () => {
-    //   it("should return the NOT found message", () => {
-    //      request(api)
-    //       .get("/api/movies/xxx")
-    //       .set("Accept", "application/json")
-    //       .expect("Content-Type", /json/)
-    //       .expect({
-    //         success: false,
-    //         status_code: 34,
-    //         status_message: "The resource you requested could not be found.",
-    //       });
-    //   });
-    // });
+      // it("should return the NOT found message", () => {
+      //    request(api)
+      //     .get("/api/actors/xxx")
+      //     .set("Accept", "application/json")
+      //     .expect("Content-Type", /json/)
+      //     .expect({
+      //       success: false,
+      //       status_code: 34,
+      //       status_message: "The resource you requested could not be found.",
+      //     });
+      // });
+    });
   });
 });

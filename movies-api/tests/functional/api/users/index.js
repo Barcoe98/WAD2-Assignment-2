@@ -9,20 +9,20 @@ const expect = chai.expect;
 let db;
 let api;
 
-const users = [
-  {
-    username: "user1",
-    password: "test1",
-  },
-  {
-    username: "user2",
-    password: "test2",
-  },
-  {
-    username: "user3",
-    password: "test3",
-  },
-];
+// const users = [
+//   {
+//     username: "user1",
+//     password: "test1",
+//   },
+//   {
+//     username: "user2",
+//     password: "test2",
+//   },
+//   {
+//     username: "user3",
+//     password: "test3",
+//   },
+// ];
 
 describe("Users endpoint", () => {
   before(() => {
@@ -54,45 +54,45 @@ describe("Users endpoint", () => {
     delete require.cache[require.resolve("../../../../index")];
   });
   describe("GET /users ", () => {
-    it("should return the 2 users and a status 200", (done) => {
-      request(api)
-        .get("/api/users")
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
-        .expect(200)
-        .end((err, res) => {
-          expect(res.body).to.be.a("array");
-          //expect(res.body.length).to.equal(3);
-          let result = res.body.map((user) => user.username);
-          expect(result).to.have.members(["user1", "user2"]);
-          done();
-        });
-    });
+    // it("should return the 2 users and a status 200", (done) => {
+    //   request(api)
+    //     .get("/api/users")
+    //     .set("Accept", "application/json")
+    //     .expect("Content-Type", /json/)
+    //     .expect(200)
+    //     .end((err, res) => {
+    //       expect(res.body).to.be.a("array");
+    //       expect(res.body.length).to.equal(2);
+    //       let result = res.body.map((user) => user.username);
+    //       expect(result).to.have.members(["user1", "user2"]);
+    //       done();
+    //     });
+    // });
   });
 
   describe("POST / ", () => {
-    it("should return a 200 status and the confirmation message", () => {
-       request(api)
-        .post("/api/users")
-        .send({
-          username: "user4",
-          password: "test4",
-        })
-        .expect(200)
-        .expect({ success: true, token: "FakeTokenForNow" });
-    });
-    after(() => {
-       request(api)
-        .get("/api/users")
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
-        .expect(200)
-        .then((res) => {
-          expect(res.body).to.be.a("array");
-          expect(res.body.length).to.equal(2);
-          let result = res.body.map((user) => user.username);
-          expect(result).to.have.members(["user1", "user2"]);
-        });
-    });
+    // it("should return a 200 status and the confirmation message", () => {
+    //    request(api)
+    //     .post("/api/users")
+    //     .send({
+    //       username: "user4",
+    //       password: "test4",
+    //     })
+    //     .expect(200)
+    //     .expect({ success: true, token: "FakeTokenForNow" });
+    // });
+    // after(() => {
+    //    request(api)
+    //     .get("/api/users")
+    //     .set("Accept", "application/json")
+    //     .expect("Content-Type", /json/)
+    //     .expect(200)
+    //     .then((res) => {
+    //       expect(res.body).to.be.a("array");
+    //       expect(res.body.length).to.equal(2);
+    //       let result = res.body.map((user) => user.username);
+    //       expect(result).to.have.members(["user1", "user2"]);
+    //     });
+    // });
   });
 });
