@@ -15,7 +15,7 @@
     "compile:routes": "babel ./routes --out-dir build/routes ",
     "compile:app": "babel index.js --out-dir build/",
     "compile:db": "babel db.js --out-dir build/",
-    "compile:copy": "cp -r ./node_modules/ build/node_modules && cp -r ./public build/public",
+    "compile:copy": "copy -r ./node_modules/ build/node_modules && copy -r ./public build/public",
     "compile:all": "npm-run-all compile:models compile:seed compile:app compile:db compile:copy",
     "postinstall": "rimraf ./build && npm run compile:all",
     "start": "nodemon --exec babel-node index.js",
