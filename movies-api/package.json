@@ -4,16 +4,40 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js"
+    "build": "npm-run-all clean compile:all",
+    "clean": "rimraf ./build && mkdir build",
+    "compile:moviemodels": "babel ./api/movies --out-dir build/api/movies",
+    "compile:usermodels": "babel ./api/users --out-dir build/api/users",
+    "compile:models": "npm-run-all compile:moviemodels compile:usermodels",
+    "compile:seed": "babel ./seedData --out-dir build/seedData",
+    "compile:routes": "babel ./routes --out-dir build/routes ",
+    "compile:app": "babel index.js --out-dir build/",
+    "compile:db": "babel db.js --out-dir build/",
+    "compile:copy": "cp -r ./node_modules/ build/node_modules && cp -r ./public build/public",
+    "compile:all": "npm-run-all compile:models compile:seed compile:app compile:db compile:copy",
+    "postinstall": "rimraf ./build && npm run compile:all",
+    "start": "nodemon --exec babel-node index.js",
+    "test": "cross-env NODE_ENV=test mocha "
   },
   "author": "barcoe98/20080330",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.6.3",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.0.2",
+    "cross-env": "^6.0.3",
     "eslint": "^7.14.0",
-    "nodemon": "^2.0.6"
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -24,6 +48,11 @@
     "jsonwebtoken": "^8.5.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "react-bootstrap": "^1.4.0"
+    "react-bootstrap": "^1.4.0",
+    "@babel/runtime": "^7.6.3",
+    "loglevel": "^1.7.1",
+    "mongoose": "^5.11.5",
+    "node-fetch": "^2.6.1",
+    "rimraf": "^3.0.0"
   }
 }

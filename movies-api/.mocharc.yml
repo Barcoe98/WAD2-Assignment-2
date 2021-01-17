@@ -1,0 +1,6 @@
+file:
+    - 'tests/functional/api/movies/index.js'
+    - 'tests/functional/api/users/index.js'
+require: '@babel/register'
+exit: true
+timeout: 4000

@@ -1,9 +1,9 @@
 import userModel from '../api/users/userModel';
 import movieModel from '../api/movies/movieModel';
-import actorModel from '../api/actors/actorModel'
+//import actorModel from '../api/actors/actorModel'
 import {movies} from './movies.js';
-import {popularMovies} from './popularMovies.js';
-import {actors} from './actors.js'
+//import {popularMovies} from './popularMovies.js';
+//import {actors} from './actors.js'
 
 
 const users = [
@@ -14,10 +14,6 @@ const users = [
   {
     'username': 'user2',
     'password': 'test2',
-  },
-  {
-    'username': 'user3',
-    'password': 'test3',
   }
 ];
 
@@ -35,8 +31,7 @@ export async function loadUsers() {
 
 // deletes all movies documents in collection and inserts test data
 export async function loadMovies() {
-  console.log('load seed data');
-  console.log(movies.length);
+  console.log('load seed data' && movies.length);
   try {
     await movieModel.deleteMany();
     await movieModel.collection.insertMany(movies);
@@ -48,9 +43,7 @@ export async function loadMovies() {
 
 // deletes all popular movie documents in collection and inserts test data
 export async function loadPopularMovies() {
-  console.log('load Popular seed data');
-  console.log(popularMovies.length);
-  try {
+  console.log('load Popular seed data' && popularMovies.length);  try {
     await movieModel.deleteMany();
     await movieModel.collection.insertMany(popularMovies);
     console.info(`${popularMovies.length} Popular Movies were successfully stored.`);
@@ -61,8 +54,7 @@ export async function loadPopularMovies() {
 
 // deletes all actors documents in collection and inserts test data
 export async function loadActors() {
-  console.log('load Actor seed data');
-  console.log(actors.length);
+  console.log('load Actor seed data' && actors.length);
   try {
     await actorModel.deleteMany();
     await actorModel.collection.insertMany(actors);
