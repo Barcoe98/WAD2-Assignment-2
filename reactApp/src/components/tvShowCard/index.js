@@ -19,7 +19,7 @@ const TvShowCard = ({tvShow}) => {
       }
       />
       </Link>
-      <h4 className="card-title">{tvShow.title}</h4>
+      <h4 className="card-title">{tvShow.name}</h4>
       </div>
       </div>
     </div>

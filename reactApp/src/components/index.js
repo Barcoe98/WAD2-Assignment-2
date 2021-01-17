@@ -6,6 +6,7 @@ import { PublicPage, Profile } from "../pages/pages";
 import LoginPage from "./registration/loginPage";
 import MoviesPage from "../pages/moviePage";
 import ActorsPage from "../pages/actorsPage";
+import TvShowsPage from "../pages/tvShowsPage";
 import HomePage from "../pages/homePage";
 import SignUpPage from "./registration/signUpPage";
 import PrivateRoute from "./registration/privateRoute";
@@ -26,7 +27,6 @@ const App = () => {
       <MovieProvider>
       <ActorsProvider>
       <TvShowsProvider>
-
         <Switch>
           <Route path="/public" component={PublicPage} />
           <Route path="/login" component={LoginPage} />
@@ -34,6 +34,8 @@ const App = () => {
           <Route exact path="/" component={HomePage} />
           <PrivateRoute path="/api/actors" component={ActorsPage} />
           <PrivateRoute path="/api/movies" component={MoviesPage} />
+          <PrivateRoute path="/api/tvshows" component={TvShowsPage} />
+
           <PrivateRoute path="/profile" component={Profile} />
           <Redirect from="*" to="/" />
         </Switch>

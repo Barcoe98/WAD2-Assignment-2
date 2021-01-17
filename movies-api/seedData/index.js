@@ -1,10 +1,11 @@
 import userModel from '../api/users/userModel';
 import movieModel from '../api/movies/movieModel';
-//import actorModel from '../api/actors/actorModel'
-import {movies} from './movies.js';
-//import {popularMovies} from './popularMovies.js';
-//import {actors} from './actors.js'
+import actorModel from '../api/actors/actorModel';
+import tvShowModel from '../api/tvShows/tvShowModel'
 
+import {movies} from './movies.js';
+import {actors} from './actors.js'
+import {tvShows} from './tvShows.js'
 
 const users = [
   {
