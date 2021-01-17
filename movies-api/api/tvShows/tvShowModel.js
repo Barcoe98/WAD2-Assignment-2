@@ -18,9 +18,6 @@ const TvShowSchema = new Schema({
   original_name: { type: String }
 });
 
-
-
-
 TvShowSchema.statics.findByTvShowDBId = function (id) {
   return this.findOne({ id: id });
 };

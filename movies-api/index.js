@@ -2,12 +2,13 @@ import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
 import actorsRouter from './api/actors';
+import tvShowsRouter from './api/tvShows';
 import usersRouter from './api/users';
 import genresRouter from './api/genres';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import passport from './authenticate';
-import {loadUsers, loadMovies, loadActors, loadPopularMovies} from './seedData';
+import {loadUsers, loadMovies, loadActors, loadTvShows} from './seedData';
 import './db';
 
 dotenv.config();
@@ -25,12 +26,12 @@ if (process.env.SEED_DB) {
   loadUsers();
   loadMovies();
   loadActors();
-  loadPopularMovies();
+  loadTvShows();
 }
 
-if (process.env.SEED_DB === 'true' && process.env.NODE_ENV === 'development') {
-  loadUsers();
-}
+// if (process.env.SEED_DB === 'true' && process.env.NODE_ENV === 'development') {
+//   loadUsers();
+// }
 
 const app = express();
 const port = process.env.PORT;
@@ -52,8 +53,8 @@ app.use(express.static('public'));
 
 // Add passport.authenticate(..)  to middleware stack for protected routes​
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
-app.use('/api/movies/popular', passport.authenticate('jwt', {session: false}), moviesRouter);
 app.use('/api/actors', passport.authenticate('jwt', {session: false}), actorsRouter);
+app.use('/api/tvshows', passport.authenticate('jwt', {session: false}), tvShowsRouter);
 
 app.use('/api/users', usersRouter);
 app.use('/api/genres', genresRouter);
