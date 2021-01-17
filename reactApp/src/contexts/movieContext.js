@@ -1,22 +1,19 @@
 import React, { useState, createContext, useEffect, useReducer } from "react";
-import { getMovies, getPopularMovies } from "../api/movie-api";
+import { getMovies } from "../api/movie-api";
 
 export const MoviesContext = createContext(null);
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "load":
-      return { movies: action.payload.result,
-        popular: [...state.popular]};
-      case "load-popular":
-      return { popular: action.payload.result, movies: [...state.movies]};
+      return { movies: action.payload.result};
     default:
       return state;
   }
 };
 
 const MoviesContextProvider = props => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], popular:[]});
+  const [state, dispatch] = useReducer(reducer, { movies: []});
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -26,18 +23,10 @@ const MoviesContextProvider = props => {
     });
   },[]);
 
-  useEffect(() => {
-    getPopularMovies().then(result => {
-      console.log(result);
-      dispatch({ type: "load", payload: {result}});
-    });
-  },[]);
-
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
-        popular:state.popular,
         setAuthenticated
       }}
     >

@@ -41,14 +41,14 @@ export async function loadMovies() {
   }
 }
 
-// deletes all popular movie documents in collection and inserts test data
-export async function loadPopularMovies() {
-  console.log('load Popular seed data' && popularMovies.length);  try {
-    await movieModel.deleteMany();
-    await movieModel.collection.insertMany(popularMovies);
-    console.info(`${popularMovies.length} Popular Movies were successfully stored.`);
+// deletes all Tv Shows documents in collection and inserts test data
+export async function loadTvShows() {
+  console.log('load Tv Shows seed data' && tvShows.length);  try {
+    await tvShowModel.deleteMany();
+    await tvShowModel.collection.insertMany(tvShows);
+    console.info(`${tvShows.length} Tv Shows were successfully stored.`);
   } catch (err) {
-    console.error(`failed to Load popular movie Data: ${err}`);
+    console.error(`failed to Load Tv Shows Data: ${err}`);
   }
 }
 
